@@ -24,12 +24,12 @@ final readonly class DiscoverCarsConnector
         )->throw();
     }
 
-    public function post(string $url, array $payload = []): \GuzzleHttp\Promise\PromiseInterface|Response
+    public function post(string $url, array $payload = []): Response
     {
         return $this->request->post(
             url: $url,
             data: $payload,
-        );
+        )->throw();
     }
 
 }
