@@ -6,8 +6,6 @@
 
 ## Application Build and Run
 
-After cloning the repository get into the laravel-sail-mongodb directory and run:
-
 `make install`
 
 `make start`
