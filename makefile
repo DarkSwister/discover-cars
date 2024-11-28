@@ -5,6 +5,16 @@ SAIL := ./vendor/bin/sail
 help: ## Display all available commands.
 	@awk 'BEGIN {FS = ":.*##"; printf "\nUsage:\n  make \033[36m<target>\033[0m\n\nTargets:\n"} /^[a-zA-Z_-]+:.*?##/ { printf "  \033[36m%-10s\033[0m %s\n", $$1, $$2 }' $(MAKEFILE_LIST)
 
+setup-storage:
+	if [ ! -d "storage/framework" ]; then \
+		cd storage && \
+		mkdir -p framework/sessions framework/views framework/cache && \
+		chmod -R 775 framework; \
+		echo "Framework directory created and permissions set."; \
+	else \
+		echo "Framework directory already exists. Skipping."; \
+	fi
+
 install: ## Setup project and install dependencies.
 	@cp .env.example .env
 	@composer install

@@ -6,6 +6,8 @@
 
 ## Application Build and Run
 
+`make setup-storage`
+
 `make install`
 
 `make start`
